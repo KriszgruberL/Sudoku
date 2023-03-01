@@ -5,6 +5,7 @@ import be.technifutur.sudoku.SudokuModel;
 public class SudokuModel9x9 implements SudokuModel {
     private char[][] tab;
 
+
     public SudokuModel9x9() {
         this.tab = new char[getMaxLine()][getMaxColumn()];
         clear();
