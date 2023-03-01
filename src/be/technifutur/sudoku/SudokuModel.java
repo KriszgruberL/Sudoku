@@ -3,6 +3,11 @@ package be.technifutur.sudoku;
 public interface SudokuModel {
     char EMPTY = 0; //la valeur dans une case quand elle est vide
 
+    /**
+     * Print the tab
+     */
+    void printTab();
+
 
     /**
      * Retourne le nombre de cell valide/inscrivable du sudoku
@@ -72,6 +77,8 @@ public interface SudokuModel {
     /**
      * Vide le sudoku
      */
-    void clear();
+    void clearAll();
+
+    void clearCell(int line,int column);
 
 }

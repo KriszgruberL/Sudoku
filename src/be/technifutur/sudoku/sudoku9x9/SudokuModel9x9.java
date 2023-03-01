@@ -8,7 +8,17 @@ public class SudokuModel9x9 implements SudokuModel {
 
     public SudokuModel9x9() {
         this.tab = new char[getMaxLine()][getMaxColumn()];
-        clear();
+        clearAll();
+    }
+
+    @Override
+    public void printTab() {
+        for (int i = 0; i < getMaxLine(); i++) {
+            for (int j = 0; j < getMaxColumn(); j++) {
+                System.out.print(tab[i][j] + "\t");
+            }
+            System.out.println(" ");
+        }
     }
 
     @Override
@@ -41,7 +51,7 @@ public class SudokuModel9x9 implements SudokuModel {
     @Override
     public boolean isPositionValid(int line, int column) {
         boolean isPosValid = false;
-        if ((line >= 0 && line <= 8) && (column >= 0 && column <= 8)) {
+        if ((line >= '0' && line <= '8') && (column >= '0' && column <= '8')) {
             isPosValid = true;
         }
         return isPosValid;
@@ -50,7 +60,7 @@ public class SudokuModel9x9 implements SudokuModel {
     @Override
     public boolean isValueValid(char value) {
         boolean isValValid = false;
-        if (value > 0 && value <= 9) {
+        if (value > '0' && value <= '9') {
             isValValid = true;
         }
         return isValValid;
@@ -66,11 +76,15 @@ public class SudokuModel9x9 implements SudokuModel {
     }
 
     @Override
-    public void clear() {
+    public void clearAll() {
         for (int i = 0; i < getMaxLine(); i++) {
             for (int j = 0; j < getMaxColumn(); j++) {
                 tab[i][j] = EMPTY;
             }
         }
+    }
+    @Override
+    public void clearCell(int line, int column) {
+        tab[line][column] = EMPTY;
     }
 }

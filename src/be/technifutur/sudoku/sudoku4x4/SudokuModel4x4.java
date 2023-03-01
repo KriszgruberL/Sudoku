@@ -6,7 +6,19 @@ public class SudokuModel4x4 implements SudokuModel {
     private char [][] tab;
     public SudokuModel4x4(){
         this.tab = new char[getMaxLine()][getMaxColumn()];
-        clear();
+        clearAll();
+    }
+
+
+    @Override
+    public void printTab() {
+        for (int i = 0; i < getMaxLine(); i++) {
+            for (int j = 0; j < getMaxColumn(); j++) {
+                System.out.print(tab[i][j] + "\t");
+            }
+            System.out.println(" ");
+        }
+        System.out.println("----------------");
     }
 
     @Override
@@ -39,7 +51,7 @@ public class SudokuModel4x4 implements SudokuModel {
     @Override
     public boolean isPositionValid(int line, int column) {
         boolean isPosValid = false;
-        if ((line >= 0 && line <=3 )&& (column >= 0 && column <= 3)){
+        if ((line >= '0' && line <='3' )&& (column >= '0' && column <= '3')){
             isPosValid = true;
         }
         return isPosValid;
@@ -48,7 +60,7 @@ public class SudokuModel4x4 implements SudokuModel {
     @Override
     public boolean isValueValid(char value) {
         boolean isValValid = false;
-        if (value > 0 && value <= 4){
+        if (value > '0' && value <= '4'){
             isValValid = true;
         }
         return isValValid;
@@ -56,19 +68,24 @@ public class SudokuModel4x4 implements SudokuModel {
 
     @Override
     public boolean isEmpty(int line, int column) {
-        boolean empty = false;
-        if (tab[line][column] == EMPTY){
-            empty = true;
+        boolean empty = true;
+        if (tab[line][column] != EMPTY){
+            empty = false;
         }
         return empty;
     }
 
     @Override
-    public void clear() {
+    public void clearAll() {
         for (int i = 0; i < getMaxLine(); i++) {
             for (int j = 0; j < getMaxColumn(); j++) {
                 tab[i][j]= EMPTY;
             }
         }
+    }
+
+    @Override
+    public void clearCell(int line, int column) {
+        tab[line][column] = EMPTY;
     }
 }
