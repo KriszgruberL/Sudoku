@@ -1,5 +1,6 @@
 package be.technifutur.sudoku;
 
+import be.technifutur.sudoku.sudoku4x4.SudokuFactory4x4;
 import be.technifutur.sudoku.sudoku4x4.SudokuModel4x4;
 import be.technifutur.sudoku.sudoku4x4.SudokuVue4x4;
 import be.technifutur.sudoku.sudoku9x9.SudokuModel9x9;
@@ -8,6 +9,10 @@ import be.technifutur.sudoku.sudoku9x9.SudokuVue9x9;
 public class Main {
     public static void main(String[] args) {
 
+        SudokuFactory4x4 factory4x4 = new SudokuFactory4x4();
+        SudokuModel4x4 model4x4 = factory4x4.getModel("Ressources\\sudoku4x4.txt");
+        SudokuVue4x4 sudokuVue4x4 = new SudokuVue4x4(model4x4);
+        System.out.println(sudokuVue4x4.getScreen());
 
 //        {
 //            System.out.println("Sudoku 4x4");
