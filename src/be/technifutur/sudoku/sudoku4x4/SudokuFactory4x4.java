@@ -2,6 +2,10 @@ package be.technifutur.sudoku.sudoku4x4;
 
 import be.technifutur.sudoku.ModelFactory;
 import be.technifutur.sudoku.SudokuModel;
+import be.technifutur.sudoku.SudokuVue;
+import be.technifutur.sudoku.sudoku9x9.SudokuFactory9x9;
+import be.technifutur.sudoku.sudoku9x9.SudokuModel9x9;
+import be.technifutur.sudoku.sudoku9x9.SudokuVue9x9;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,12 +22,8 @@ public class SudokuFactory4x4 implements ModelFactory {
         try(Scanner scanner = new Scanner(file)){
             while (scanner.hasNextLine()){
                 String line = scanner.nextLine();
-                System.out.println(line);
                 for (int i = 0; i < model4x4.getMaxLine() ; i++) {
-                    char value = line.charAt(i);
-                    if (value != '.') {
-                        model4x4.setValue(nbLine,i, value);
-                    }
+                        model4x4.setValue(nbLine, i, line.charAt(i));
                 }
                 nbLine++;
             }
@@ -32,5 +32,13 @@ public class SudokuFactory4x4 implements ModelFactory {
             System.out.println("File not found");
         }
         return model4x4;
+    }
+    @Override
+    public SudokuVue getVue(String fileName) {
+        SudokuFactory4x4 factory4x4 = new SudokuFactory4x4();
+        SudokuModel4x4 model4x4 = factory4x4.getModel(fileName);
+        SudokuVue4x4 sudokuVue4x4 = new SudokuVue4x4(model4x4);
+        System.out.println(sudokuVue4x4.getScreen());
+        return sudokuVue4x4;
     }
 }

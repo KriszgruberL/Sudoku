@@ -51,7 +51,7 @@ public class SudokuModel4x4 implements SudokuModel {
     @Override
     public boolean isPositionValid(int line, int column) {
         boolean isPosValid = false;
-        if ((line >= '0' && line <='3' )&& (column >= '0' && column <= '3')){
+        if ((line >= 0 && line < 9) && (column >= 0 && column <= 9)){
             isPosValid = true;
         }
         return isPosValid;
