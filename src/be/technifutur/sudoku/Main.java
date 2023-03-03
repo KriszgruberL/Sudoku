@@ -8,6 +8,12 @@ import com.sun.security.jgss.GSSUtil;
 import java.io.File;
 import java.util.Scanner;
 
+//(([3-9]|1[0-9]?|2[01]?)\.([3-9]|1[0-9]?|2[01]?)\.([3-9]|1[0-9]?|2[01]?))[qQ] regex samurai
+//(([1-9])\.[1-9]\.[1-9])[qQ] regex 9x9
+// (([1-4])\.[1-4]\.[1-4])[qQ] regex 4x4
+//pattern.compil
+
+
 
 public class Main {
 
