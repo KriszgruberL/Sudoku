@@ -1,0 +1,14 @@
+be.technifutur.sudoku.SudokuController
+
+var sudokuFactory
+
+be.technifutur.sudoku.SudokuController (ctrl: SudokuFactory)
+
+start (fileName)
+
+condition de sortie de la methode strt 'q'
+
+"line.colum.value"
+
+SudokuFactory sudoku4x4 = new SudokuFactory4x4();
+        sudoku4x4.getVue("Ressources\\sudoku4x4.txt");

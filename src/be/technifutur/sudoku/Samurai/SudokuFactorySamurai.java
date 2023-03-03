@@ -1,13 +1,15 @@
-package be.technifutur.sudoku.sudoku4x4;
+package be.technifutur.sudoku.Samurai;
 
 import be.technifutur.sudoku.SudokuFactory;
 import be.technifutur.sudoku.SudokuVue;
+import be.technifutur.sudoku.sudoku4x4.SudokuModel4x4;
+import be.technifutur.sudoku.sudoku4x4.SudokuVue4x4;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class SudokuFactory4x4 implements SudokuFactory {
+public class SudokuFactorySamurai implements SudokuFactory {
 
     @Override
     public SudokuModel4x4 getModel(String fileName) {
@@ -31,7 +33,7 @@ public class SudokuFactory4x4 implements SudokuFactory {
     }
     @Override
     public SudokuVue getVue(String fileName) {
-        SudokuFactory4x4 factory4x4 = new SudokuFactory4x4();
+        SudokuFactorySamurai factory4x4 = new SudokuFactorySamurai();
         SudokuModel4x4 model4x4 = factory4x4.getModel(fileName);
         SudokuVue4x4 sudokuVue4x4 = new SudokuVue4x4(model4x4);
         return sudokuVue4x4;

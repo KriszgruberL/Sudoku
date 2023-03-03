@@ -1,14 +1,13 @@
 package be.technifutur.sudoku.sudoku9x9;
 
-import be.technifutur.sudoku.ModelFactory;
-import be.technifutur.sudoku.SudokuModel;
+import be.technifutur.sudoku.SudokuFactory;
 import be.technifutur.sudoku.SudokuVue;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class SudokuFactory9x9 implements ModelFactory {
+public class SudokuFactory9x9 implements SudokuFactory {
     @Override
     public SudokuModel9x9 getModel(String fileName) {
         File file = new File(fileName);

@@ -1,18 +1,70 @@
 package be.technifutur.sudoku;
 
+import be.technifutur.sudoku.Samurai.SudokuFactorySamurai;
 import be.technifutur.sudoku.sudoku4x4.SudokuFactory4x4;
 import be.technifutur.sudoku.sudoku9x9.SudokuFactory9x9;
+import com.sun.security.jgss.GSSUtil;
+
+import java.io.File;
+import java.util.Scanner;
 
 
 public class Main {
+
     public static void main(String[] args) {
+        SudokuFactory factory;
+        SudokuController ctrl;
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        System.out.println("""
+                Menu :
+                1 pour un Sudoku 4x4
+                2 pour un Sudoku 9x9
+                3 pour un Sudoku Samurai
+                4 pour quitter
+                """);
 
-        ModelFactory sudoku4x4 = new SudokuFactory4x4();
-        sudoku4x4.getVue("Ressources\\sudoku4x4.txt");
+        choice = Integer.parseInt(sc.nextLine());
+        switch (choice) {
+            case 1:
+                factory = new SudokuFactory4x4();
+                ctrl = new SudokuController(factory);
+                ctrl.start("Ressources\\sudoku4x4.txt");
+                break;
+            case 2:
+                factory = new SudokuFactory9x9();
+                ctrl = new SudokuController(factory);
+                ctrl.start("Ressources\\sudoku9x9.txt");
+                break;
+            case 3:
+                factory = new SudokuFactorySamurai();
+                ctrl = new SudokuController(factory);
+                ctrl.start("Ressources\\sudokuSamurai.txt");
+                break;
+            case 4:
+                System.out.println("Okay bye");
+                break;
+            default:
+                System.out.println("Valeur invalide");
+                break;
+//        }
+//        File dir  = new File("C:\\Users\\PC\\Desktop\\Dossier");
+//        File[] liste = dir.listFiles();
+//        for(File item : liste){
+//            if(item.isFile())
+//            {
+//                System.out.format("Nom du fichier: %s%n", item.getName());
+//            }
+//            else if(item.isDirectory())
+//            {
+//                System.out.format("Nom du répertoir: %s%n", item.getName());
+//            }
+//        }
+        }
+    }
+}
 
-        ModelFactory sudoku9x9 = new SudokuFactory9x9();
-        sudoku9x9.getVue("Ressources\\sudoku9x9.txt");
-
+//
 
 
 //        {
@@ -36,8 +88,6 @@ public class Main {
 //
 //            System.out.println(vue9x9.getScreen());
 //        }
-
-
 
 
 //        {
@@ -66,5 +116,4 @@ public class Main {
 //            model.clearAll();
 //            model.printTab();
 //        }
-    }
-}
+

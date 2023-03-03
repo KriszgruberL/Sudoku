@@ -51,24 +51,16 @@ public class SudokuModelSamurai implements SudokuModel {
 
     @Override
     public boolean isPositionValid(int line, int column) {
-        if (line < 6 || line > 14){
-            if (column > 8 && column <= 11){
-                return false;
-            }else {
-                return true;
-            }
-        } else {
-            if (column < 6 || column > 14){
-                if (line > 8 && line <= 11){
-                    return false;
-                } else {
-                    return true;
-                }
-            } else {
-                return true;
-            }
+        boolean result = false;
+        if ((line >= 0 && line <9 && column >=0 && column <9)
+                ||(line >= 0 && line <9 && column >= 12 && column <21)
+                ||(line >= 6 && line <15 && column >=6 && column <15)
+                ||(line >= 12 && line <21 && column >=0 && column <9)
+                ||(line >= 12 && line <21 && column >=12 && column <21))
+        {
+            result = true;
         }
-
+        return result;
     }
 
     @Override
